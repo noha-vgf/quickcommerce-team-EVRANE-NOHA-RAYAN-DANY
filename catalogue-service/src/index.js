@@ -31,6 +31,19 @@ app.get('/health', async (req, res) => {
 const productsRoutes = require('./routes/products');
 app.use('/products', productsRoutes(db)); // ← PASSER db ICI
 
+app.get('/version', (req, res) => {
+  res.json({ 
+    service: 'catalogue', 
+    version: '1.0.1',
+    team: 'QuickCommerce Team NOM1-NOM2',
+    date: new Date().toISOString()
+  });
+});
+
+# Commit
+git add catalogue-service/src/index.js
+git commit -m "feat(catalogue): add version endpoint"
+
 app.listen(PORT, () => {
   console.log(`📦 Catalogue Service - Port ${PORT}`);
 });
