@@ -59,6 +59,19 @@ app.get('/cart/:userId', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+app.get('/version', (req, res) => {
+  res.json({ 
+    service: 'panier', 
+    version: '1.0.1',
+    team: 'QuickCommerce Team NOM1-NOM2',
+    date: new Date().toISOString()
+  });
+});
+
+# Commit
+git add panier-service/src/index.js
+git commit -m "feat(panier): add version endpoint"
+git push origin feature/panier-version
 
 app.listen(PORT, () => {
   console.log(`🛒 Panier Service - Port ${PORT}`);
