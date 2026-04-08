@@ -62,6 +62,19 @@ app.post('/orders', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+app.get('/version', (req, res) => {
+  res.json({ 
+    service: 'commandes', 
+    version: '1.0.1',
+    team: 'QuickCommerce Team NOM1-NOM2',
+    date: new Date().toISOString()
+  });
+});
+
+# Commit
+git add commandes-service/src/index.js
+git commit -m "feat(commandes): add version endpoint"
+git push origin feature/commandes-version
 
 app.listen(PORT, () => {
   console.log(`📦 Commandes Service - Port ${PORT}`);
