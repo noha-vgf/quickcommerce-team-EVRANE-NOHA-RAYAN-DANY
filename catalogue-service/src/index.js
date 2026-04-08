@@ -43,6 +43,7 @@ app.get('/version', (req, res) => {
 # Commit
 git add catalogue-service/src/index.js
 git commit -m "feat(catalogue): add version endpoint"
+git push origin feature/catalogue-version
 
 app.listen(PORT, () => {
   console.log(`📦 Catalogue Service - Port ${PORT}`);
